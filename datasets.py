@@ -231,3 +231,11 @@ def avila():
     print('\n% avila train dataset', len(data_train), len(data_train[0]))
     print('% avila test dataset', len(data_test), len(data_test[0]))
     return model, data_train, data_test
+
+def police():
+    attrs = ['Rank', 'Name','Date', 'Year', 'Month', 'Day', 'Department', 'State', 'K9_Unit']
+    nums = ['Year']
+    model = Classifier(attrs=attrs, numeric=nums, label='Cause_of_Death', pos='Assault')
+    data = model.load_data('data/police/police_deaths_in_america.csv')
+    print('\n% USA police deaths dataset', len(data), len(data[0]))
+    return model, data

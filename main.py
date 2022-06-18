@@ -5,10 +5,11 @@ from datetime import timedelta
 
 
 def main():
+    model, data = police()
     # model, data = acute()
     # model, data = autism()
     # model, data = breastw()
-    model, data = cars()
+    # model, data = cars()
     # model, data = credit()
     # model, data = heart()
     # model, data = kidney()
@@ -25,7 +26,8 @@ def main():
     # model, data = heloc()
     # model, data = parkison()
 
-    data_train, data_test = split_data(data, ratio=0.8, rand=True)  
+    trainRatio = .8
+    data_train, data_test = split_data(data, ratio=trainRatio, rand=True)  
     # line 28: 80% as training data, 20% as test data. shuffle data first when rand is True
 
     # model, data_train, data_test = titanic()
@@ -44,6 +46,7 @@ def main():
     # line 43: output simplified rules when simple is True, default value is False
     Y_test_hat = model.predict(X_test)
     acc, p, r, f1 = get_scores(Y_test_hat, Y_test)
+    print('% trainRatio =', trainRatio)
     print('% acc', round(acc, 4), 'p', round(p, 4), 'r', round(r, 4), 'f1', round(f1, 4))
     print('% foldr++ costs: ', timedelta(seconds=end - start), '\n')
 

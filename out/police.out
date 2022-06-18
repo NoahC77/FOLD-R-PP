@@ -1,0 +1,46 @@
+
+% USA police deaths dataset 26269 10
+cause_of_death(X,'assault') :- rank(X,'guard'), date(X,'"thursday'), not department(X,'february'), not department(X,'july'), not name(X,'john_o._lynch'), not ab1(X), not ab2(X), not ab4(X), not ab5(X), not ab6(X). 
+cause_of_death(X,'assault') :- rank(X,'correctional_officer'), k9_unit(X,'"new_york_state_department_of_correctional_services'), not ab7(X). 
+cause_of_death(X,'assault') :- k9_unit(X,'"texas_rangers'), month(X,'_1838"'). 
+cause_of_death(X,'assault') :- rank(X,'correctional_officer'), month(X,'_2017"'). 
+cause_of_death(X,'assault') :- rank(X,'correctional_officer'), month(X,'_2010"'). 
+cause_of_death(X,'assault') :- k9_unit(X,'"texas_rangers'), year(X,'_november_10'), not ab8(X), not ab9(X), not ab10(X). 
+cause_of_death(X,'assault') :- rank(X,'correctional_officer'), month(X,'_1986"'), not ab11(X). 
+cause_of_death(X,'assault') :- rank(X,'jailer'), year(X,'_june_29'). 
+cause_of_death(X,'assault') :- rank(X,'guard'), year(X,'_july_17'). 
+cause_of_death(X,'assault') :- rank(X,'correctional_officer'), name(X,'wilson_morris_cartwright'). 
+cause_of_death(X,'assault') :- rank(X,'guard'), month(X,'_1905"'). 
+cause_of_death(X,'assault') :- rank(X,'correctional_officer'), name(X,'josephine_birdene_mccallum'). 
+cause_of_death(X,'assault') :- rank(X,'jailer'), year(X,'_february_23'). 
+cause_of_death(X,'assault') :- rank(X,'correctional_officer'), name(X,'william_e._mccasling'). 
+cause_of_death(X,'assault') :- rank(X,'correctional_officer'), name(X,'w._h._aston'). 
+cause_of_death(X,'assault') :- rank(X,'corrections_employee'), month(X,'_1977"'). 
+ab1(X) :- name(X,'myron_h._goodwin'). 
+ab2(X) :- name(X,'raymond_brown'). 
+ab3(X) :- name(X,'james_otis_mcmurray'). 
+ab4(X) :- department(X,'december'), not ab3(X). 
+ab5(X) :- name(X,'early_a._lott'). 
+ab6(X) :- name(X,'daniel_heavey'). 
+ab7(X) :- name(X,'harold_bruette'). 
+ab8(X) :- name(X,'william_nicholson'). 
+ab9(X) :- name(X,'william_sanders'). 
+ab10(X) :- name(X,'joseph_cooper'). 
+ab11(X) :- name(X,'michael_r._green'). 
+% acc 0.9743 p 0.2 r 0.0155 f1 0.0288
+% foldr++ costs:  0:00:02.765331 
+
+
+% USA police deaths dataset 26269 10
+cause_of_death(X,'assault') :- rank(X,'correctional_officer'), k9_unit(X,'"new_york_state_department_of_correctional_services'), not ab1(X). 
+cause_of_death(X,'assault') :- rank(X,'guard'), year(X,'_july_17'). 
+cause_of_death(X,'assault') :- rank(X,'correctional_officer'), month(X,'_2010"'). 
+cause_of_death(X,'assault') :- k9_unit(X,'"texas_rangers'), date(X,'"friday'), not ab2(X), not ab3(X), not ab4(X). 
+ab1(X) :- name(X,'harold_bruette'). 
+ab2(X) :- year(X,'_october_11'). 
+ab3(X) :- name(X,'william_sanders'). 
+ab4(X) :- name(X,'alvin_a._clark'). 
+% trainRatio = 0.8
+% acc 0.9735 p 0.0 r 0.0 f1 0
+% foldr++ costs:  0:00:00.843860 
+
