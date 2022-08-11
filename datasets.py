@@ -47,6 +47,14 @@ def cars():
     print('\n% cars dataset', len(data), len(data[0]))
     return model, data
 
+def carclaims():
+    attrs = ['Month', 'WeekOfMonth', 'DayOfWeek', 'Make', 'AccidentArea', 'DayOfWeekClaimed', 'MonthClaimed', 'WeekOfMonthClaimed', 'Sex', 'MaritalStatus', 'Age', 'Fault', 'PolicyType', 'VehicleCategory', 'VehiclePrice', 'Deductible', 'DriverRating', 'Days:Policy-Accident', 'Days:Policy-Claim', 'PastNumberOfClaims', 'AgeOfVehicle', 'AgeOfPolicyHolder', 'PoliceReportFiled', 'WitnessPresent', 'AgentType', 'NumberOfSuppliments', 'AddressChange-Claim', 'NumberOfCars', 'Year']
+    nums = ['Age', 'RepNumber', 'Deductible', 'PastNumberOfClaims', 'Year']
+    model = Classifier(attrs=attrs, numeric=[], label='FraudFound', pos='Yes')
+    data = model.load_data('data/carclaims/carclaims.csv')
+    print('\n% carclaims dataset', len(data), len(data[0]))
+    return model, data
+
 
 def credit():
     attrs = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'a11', 'a12', 'a13', 'a14', 'a15']
@@ -108,6 +116,14 @@ def sonar():
     model = Classifier(attrs=attrs, numeric=nums, label='label', pos='Mine')
     data = model.load_data('data/sonar/sonar.csv')
     print('\n% sonar dataset', len(data), len(data[0]))
+    return model, data
+
+def suicide():
+    attrs = ['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019']
+    nums = ['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019']
+    model = Classifier(attrs=attrs, numeric=nums, label='Country', pos='Syria')
+    data = model.load_data('data/suicidecountries/suiciderateall.csv')
+    print('\n% suicide countries dataset', len(data), len(data[0]))
     return model, data
 
 
@@ -198,6 +214,13 @@ def titanic():
     print('% titanic test dataset', len(data_test), len(data_test[0]))
     return model, data_train, data_test
 
+def busdelay():
+    attrs = ['Date', 'Route', 'Time', 'Day', 'Incident', 'Min Delay', 'Min Gap', 'Direction', 'Vehicle']
+    nums = ['Min Delay', 'Min Gap']
+    model = Classifier(attrs=attrs, numeric=nums, label='Location', pos = 'KING AND SHAW')
+    data = model.load_data('data/busdelay/ttc-bus-delay-data-2022.csv')
+    print('\n% toronto bus delay dataset', len(data), len(data[0]))
+    return model, data
 
 def anneal():
     attrs = ['family', 'product_type', 'steel', 'carbon', 'hardness', 'temper_rolling', 'condition', 'formability',
@@ -231,3 +254,25 @@ def avila():
     print('\n% avila train dataset', len(data_train), len(data_train[0]))
     print('% avila test dataset', len(data_test), len(data_test[0]))
     return model, data_train, data_test
+
+def police():
+    attrs = ['Rank', 'Name','Date', 'Year', 'Month', 'Day', 'Department', 'State', 'K9_Unit']
+    nums = ['Year']
+    model = Classifier(attrs=attrs, numeric=nums, label='Cause_of_Death', pos='Assault')
+    data = model.load_data('data/police/police_deaths_in_america.csv')
+    print('\n% USA police deaths dataset', len(data), len(data[0]))
+    return model, data
+
+# in cases where the number is within a domain, would it work to leave it as a regular attribute and then let that finite domain be categorized. Like the year of death, We know people will not have died in the future in this dataset. TRY IT YOURSELF
+# this dataset has over one million entrys
+def age():
+    attrs = ['Name', 'Short description', 'Country', 'Occupation', 'Birth year', 'Death year', 'Manner of death', 'Age of death']
+    nums = ['Birth year', 'Death year', 'Age of death']
+    model = Classifier(attrs=attrs, numeric=nums, label='Gender', pos='Male')
+    data = model.load_data('data/age/AgeDataset-V1.csv')
+    print('\n% age dataset', len(data), len(data[0]))
+    return model, data
+
+# def netflix_titles():
+ #   attrs = ['title', 'type', 'description', 'release_year', 'age_certification', 'runtime', 'genres', 'production_countries', 'seasons', 'imdb_id', 'imdb_score', 'imdb_votes', 'tmdb_popularity', 'tmdb_score']
+ #   nums = [
