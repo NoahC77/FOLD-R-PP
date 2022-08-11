@@ -1,6 +1,13 @@
 # FOLD-R-PP
 The implementation details of FOLD-R++ algorithm and how to use it are described here. The target of FOLD-R++ algorithm is to learn an answer set program for a classification task. Answer set programs are logic programs that permit negation of predicates and follow the stable model semantics for interpretation. The rules generated are essentially default rules. Default rules (with exceptions) closely model human thinking.
 
+# Noah's Fork
+The data folder is ignored as there are large files which can't be pushed to github. Here are the additional datasets being used:
+
+* https://www.kaggle.com/datasets/khusheekapoor/vehicle-insurance-fraud-detection
+* https://www.kaggle.com/datasets/f5dd9a8e43490dc1024e2f6726e4fa6080fe1cad64ef53fe0edf0ffa06d922cc
+
+
 ## Installation
 Only function library:
 
