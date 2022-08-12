@@ -64,6 +64,14 @@ def credit():
     print('\n% credit dataset', len(data), len(data[0]))
     return model, data
 
+def fraud():
+    attrs = ['type', 'amount', 'nameOrig', 'oldbalanceOrg', 'newbalanceOrig', 'nameDest', 'oldbalanceDest', 'newbalanceDest', 'isFlaggedFraud']
+    nums = ['amount', 'oldbalanceOrg', 'newbalanceOrig', 'oldbalanceDest', 'newbalanceDest']
+    model = Classifier(attrs=attrs, numeric=nums, label='isFraud', pos='1')
+    data = model.load_data('data/fraudtransaction/Fraud.csv')
+    print('\n% fraud transaction dataset', len(data), len(data[0]))
+    return model, data
+
 
 def heart():
     attrs = ['age', 'sex', 'chest_pain', 'blood_pressure', 'serum_cholestoral', 'fasting_blood_sugar',

@@ -5,10 +5,11 @@ from datetime import timedelta
 
 
 def main():
+    model, data = fraud()
     # model, data = acute()
     # model, data = autism()
     # model, data = breastw()
-    model, data = cars()
+    # model, data = cars()
     # model, data = credit()
     # model, data = heart()
     # model, data = kidney()
